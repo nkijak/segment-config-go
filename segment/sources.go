@@ -44,13 +44,14 @@ func (c *Client) GetSource(srcName string) (Source, error) {
 }
 
 // CreateSource creates a new source
-func (c *Client) CreateSource(srcName string, catName string) (Source, error) {
+func (c *Client) CreateSource(srcName string, catName string, labels map[string]string) (Source, error) {
 	var s Source
 	srcFullName := fmt.Sprintf("%s/%s/%s/%s",
 		WorkspacesEndpoint, c.workspace, SourceEndpoint, srcName)
 	src := Source{
 		Name:        srcFullName,
 		CatalogName: catName,
+                Labels:      labels,
 	}
 	req := sourceCreateRequest{src}
 	data, err := c.doRequest(http.MethodPost,

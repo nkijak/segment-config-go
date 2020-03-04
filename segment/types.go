@@ -23,6 +23,7 @@ type Source struct {
 	WriteKeys     []string      `json:"write_keys,omitempty"`
 	LibraryConfig LibraryConfig `json:"library_config,omitempty"`
 	CreateTime    time.Time     `json:"create_time,omitempty"`
+        Labels        map[string]string `json:"labels,omitempty"`
 }
 
 // LibraryConfig contains information about a source's library
