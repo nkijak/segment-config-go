@@ -80,3 +80,4 @@ func (c *Client) DeleteSource(srcName string) error {
 
 	return nil
 }
+
