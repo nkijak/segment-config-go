@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+        "log"
 
 	"github.com/pkg/errors"
 )
@@ -59,6 +60,8 @@ func (c *Client) doRequest(method, endpoint string, data interface{}) ([]byte, e
 	// Set the proper headers.
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.accessToken))
 	req.Header.Set("Content-Type", mediaType)
+
+        log.Printf("request=%v\n", req)
 
 	// Do the request.
 	resp, err := c.client.Do(req)

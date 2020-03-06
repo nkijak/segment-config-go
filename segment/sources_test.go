@@ -156,7 +156,7 @@ func TestSources_CreateSource(t *testing.T) {
 			CrossDomainIDEnabled: false,
 			APIHost:              ""}}
 
-	actual, err := client.CreateSource(testSrcName, testCatName)
+	actual, err := client.CreateSource(testSrcName, testCatName, make(map[string]string))
 	assert.NoError(t, err)
 
 	assert.Equal(t, expected, actual)
